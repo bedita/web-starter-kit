@@ -12,3 +12,6 @@ dist
 
 # webroot
 /webroot/index.php
+
+# tmp
+/tmp
