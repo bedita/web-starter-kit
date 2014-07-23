@@ -1,2 +1,15 @@
-<h3>Hi, this is a working BEdita frontend</h3>
-<p>HTML5 Boilerplate template</p>
+    <main>
+
+        {if (!empty($section.contentRequested))}
+            {if (!empty($section.currentContent))}
+                {$view->element('article')}
+            {/if}
+        {else}
+            {if !empty($section.childContents)}
+                {$view->element('list_items')}
+            {else}
+                {t}Section is empty{/t}
+            {/if}
+        {/if}
+
+    </main>
