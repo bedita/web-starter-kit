@@ -12,4 +12,13 @@ class PagesController extends FrontendController {
         $this->set('feedNames', $this->Section->feedsAvailable(Configure::read('frontendAreaId')));
         $this->set('sectionsTree', $this->loadSectionsTree(Configure::read('frontendAreaId')));
     }
+
+    /**
+     * Before render filter
+     */
+    protected function beditaBeforeRender() {
+        // uncomment to set basic layout as default
+        //$this->layout = 'basic';
+    }
+    
 }

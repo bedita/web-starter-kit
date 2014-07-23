@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-	{$html->charset()}
-	<title>{$beFront->title()}</title>
+<html lang="{$currLang2}">
+  <head>
+    {$html->charset()}
+    {$beFront->metaAll()}
+    {$beFront->metaDc()}
+    {$beFront->metaOg()}
 
-	{$beFront->metaAll()}
-	{$beFront->metaDc()}
-	{$beFront->metaOg()}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$beFront->title()}</title>
 
-	{$html->css('style')}
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="196x196" href="{$html->url('/')}images/touch/chrome-touch-icon-196x196.png">
 
-	<link rel="icon" href="{$html->webroot}favicon.png" type="image/png" />
-    <!--[if lt IE 9]>
-        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <script>window.html5 || document.write('<script src="js/libs/html5shiv.js"><\/script>')</script>
-    <![endif]-->
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="{$beFront->title()}">
 
-	{$beFront->feeds()}
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="{$html->url('/')}images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
 
-	{$scripts_for_layout}
-</head>
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- build:css styles/components/main.min.css -->
+     {$html->css('/styles/h5bp.css')}
+     {$html->css('/styles/components/components.css')}
+     {$html->css('/styles/main.css')}
+    <!-- endbuild -->
+
+    {$beFront->feeds()}
+    {$scripts_for_layout}
+
+  </head>
 
 <body>
 	{$view->element('header')}
@@ -28,6 +47,9 @@
 
 	{$view->element('footer')}
 
+    <!-- build:js scripts/main.min.js -->
+    {$html->script('/scripts/main')}
+    <!-- endbuild -->
 	{$beFront->stats()}
 </body>
 </html>
