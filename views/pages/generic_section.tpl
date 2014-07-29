@@ -1,15 +1,9 @@
     <main>
 
-        {if (!empty($section.contentRequested))}
-            {if (!empty($section.currentContent))}
-                {$view->element('article')}
-            {/if}
+        {if !empty($section.contentRequested)}
+            {$view->element('content')}
         {else}
-            {if !empty($section.childContents)}
-                {$view->element('list_items')}
-            {else}
-                {t}Section is empty{/t}
-            {/if}
+            {$view->element('list_contents')}
         {/if}
 
     </main>
