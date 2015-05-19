@@ -1,5 +1,11 @@
 <?php
-    // specific publication routing rules
+// specific publication routing rules
 
-    // DO NOT EDIT OR CHANGE BELOW!!
-    Router::connect('/*', array('controller' => 'pages', 'action' => 'route'));
+// DO NOT EDIT OR CHANGE BELOW!!
+$apiBaseUrl = Configure::read('api.baseUrl');
+if (!empty($apiBaseUrl) && is_string($apiBaseUrl)) {
+    $apiBaseUrl = ($apiBaseUrl == '/') ? '/*' : $apiBaseUrl . '/*';
+    Router::connect($apiBaseUrl, array('controller' => 'api', 'action' => 'route'));
+}
+
+Router::connect('/*', array('controller' => 'pages', 'action' => 'route'));

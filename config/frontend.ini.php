@@ -123,7 +123,7 @@ $config['cookieName'] = array(
 
 /**
  * save history navigation
- 
+ *
  * 'sessionEntry' => number of history items in session
  * 'showDuplicates' => false to not show duplicates in history session 
  * 'trackNotLogged' => true save history for all users (not logged too)
@@ -133,6 +133,21 @@ $config['cookieName'] = array(
 //    'showDuplicates' => false,
 //    'trackNotLogged' => false
 //);
+
+/**
+ * Enable API endpoints for the  frontend
+ * required `baseUrl` the endpoint base url
+ * optional `JWT` a set of conf for JWT creation
+ * optional `allowedOrigins` a list of allowed origin to use the API
+ */
+// $config['api'] = array(
+//     'baseUrl' => '/api/v1',
+//     'JWT' => array(
+//         'expiresIn' => 600,
+//         'alg' => 'HS256'
+//     ),
+//     'allowedOrigins' => array()
+// );
 
 // frontend.cfg
 if(file_exists(APP. 'config' . DS . 'frontend.cfg.php')) {
